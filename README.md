@@ -1,3 +1,17 @@
+# Moment Counter ⏱☝️
+
+## General Info
+
+A React portfolio project for Nucamp.
+
+Moment Counter allows users to quickly mark off a set number of events from a list. It's similar to a checklist, but intended to be a bit simpler, quicker, and more fun!
+
+Original wireframes and design intent can be [found here](https://www.figma.com/file/17vW94nlMz1CYZiXVScEhi/Moment-Counter-Wireframe?node-id=292669%3A448).
+
+## Installation & Setup
+
+...
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
