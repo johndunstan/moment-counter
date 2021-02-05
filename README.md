@@ -12,6 +12,12 @@ Original wireframes and design intent can be [found here](https://www.figma.com/
 
 ...
 
+### Dependencies
+
+```
+npm install --save react-router
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
