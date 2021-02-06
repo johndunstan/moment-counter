@@ -6,8 +6,7 @@ class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      dummyData: 'Hello World!',
-      showCompleted: false,
+      showCompleted: true,
       listOfLists: [
         {
           id: 1,
@@ -46,7 +45,11 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar
+          showCompleted={this.state.showCompleted}
+          name={this.state.listOfLists[0].name}
+          items={this.state.listOfLists[0].items}
+        />
         <Footer />
       </div>
     )

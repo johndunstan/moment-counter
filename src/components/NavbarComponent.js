@@ -4,7 +4,7 @@ import Stats from './stats/StatsComponent'
 import About from './about/AboutComponent'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
-function Navbar() {
+function Navbar(props) {
   return (
     <Router>
       <div>
@@ -30,7 +30,11 @@ function Navbar() {
             <Stats />
           </Route>
           <Router path="/">
-            <CountdownContainer />
+            <CountdownContainer
+              showCompleted={props.showCompleted}
+              name={props.name}
+              items={props.items}
+            />
           </Router>
         </Switch>
       </div>

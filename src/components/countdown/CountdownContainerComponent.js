@@ -7,7 +7,11 @@ function CountdownContainer(props) {
     <div>
       <h1>CountdownContainer!</h1>
       <Menubar showCompleted={props.showCompleted} />
-      <DisplayItems name={props.name} />
+      <DisplayItems
+        showCompleted={props.showCompleted}
+        name={props.name}
+        items={props.items}
+      />
     </div>
   )
 }
