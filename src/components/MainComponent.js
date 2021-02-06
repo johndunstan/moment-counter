@@ -14,7 +14,7 @@ class Main extends Component {
           items: [
             {
               id: 1,
-              isComplete: false,
+              isComplete: true,
               description: null,
               date: null,
               time: null,
@@ -30,7 +30,7 @@ class Main extends Component {
             },
             {
               id: 3,
-              isComplete: false,
+              isComplete: true,
               description: null,
               date: null,
               time: null,
