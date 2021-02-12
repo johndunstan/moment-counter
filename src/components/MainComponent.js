@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
+
 import Navbar from './NavbarComponent'
+import CountdownContainer from './countdown/CountdownContainerComponent'
+import Stats from './stats/StatsComponent'
+import About from './about/AboutComponent'
 import Footer from './FooterComponent'
 
 class Main extends Component {
@@ -42,14 +47,28 @@ class Main extends Component {
     }
   }
 
+  // NOTE: When I start having multiple lists, I'll want to start using 'match' with React Router
+  // TODO: Set up a basic 404-page to route to
+
   render() {
     return (
       <div>
-        <Navbar
-          showCompleted={this.state.showCompleted}
-          name={this.state.listOfLists[0].name}
-          items={this.state.listOfLists[0].items}
-        />
+        <Navbar />
+        <Switch>
+          <Route exact path="/stats">
+            <Stats />
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/">
+            <CountdownContainer
+              showCompleted={this.state.showCompleted}
+              name={this.state.listOfLists[0].name}
+              items={this.state.listOfLists[0].items}
+            />
+          </Route>
+        </Switch>
         <Footer />
       </div>
     )
