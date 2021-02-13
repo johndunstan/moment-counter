@@ -12,12 +12,10 @@ function DisplayItems(props) {
   }
 
   return (
-    <div>
-      <h3>Display Items</h3>
-      <p>{props.name}</p>
-
+    <>
+      <h1>{props.name}</h1>
       {props.items.map((item) => RenderItem(item))}
-    </div>
+    </>
   )
 }
 

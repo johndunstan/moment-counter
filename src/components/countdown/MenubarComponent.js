@@ -5,7 +5,6 @@ function Menubar(props) {
 
   return (
     <div>
-      <h4>Menubar</h4>
       <form>
         <label htmlFor="showComplete">Show Completed: </label>
         <input

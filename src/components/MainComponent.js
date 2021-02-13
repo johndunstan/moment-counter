@@ -55,24 +55,26 @@ class Main extends Component {
     return (
       <div>
         <Navbar />
-        <Switch>
-          <Route exact path="/">
-            <CountdownContainer
-              showCompleted={this.state.showCompleted}
-              name={this.state.listOfLists[0].name}
-              items={this.state.listOfLists[0].items}
-            />
-          </Route>
-          <Route path="/stats">
-            <Stats />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route>
-            <PageNotFound />
-          </Route>
-        </Switch>
+        <main>
+          <Switch>
+            <Route exact path="/">
+              <CountdownContainer
+                showCompleted={this.state.showCompleted}
+                name={this.state.listOfLists[0].name}
+                items={this.state.listOfLists[0].items}
+              />
+            </Route>
+            <Route path="/stats">
+              <Stats />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route>
+              <PageNotFound />
+            </Route>
+          </Switch>
+        </main>
         <Footer />
       </div>
     )
