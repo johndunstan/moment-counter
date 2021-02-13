@@ -6,6 +6,7 @@ import CountdownContainer from './countdown/CountdownContainerComponent'
 import Stats from './stats/StatsComponent'
 import About from './about/AboutComponent'
 import Footer from './FooterComponent'
+import PageNotFound from './404Component'
 
 class Main extends Component {
   constructor(props) {
@@ -55,18 +56,21 @@ class Main extends Component {
       <div>
         <Navbar />
         <Switch>
-          <Route exact path="/stats">
-            <Stats />
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
           <Route exact path="/">
             <CountdownContainer
               showCompleted={this.state.showCompleted}
               name={this.state.listOfLists[0].name}
               items={this.state.listOfLists[0].items}
             />
+          </Route>
+          <Route path="/stats">
+            <Stats />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route>
+            <PageNotFound />
           </Route>
         </Switch>
         <Footer />
