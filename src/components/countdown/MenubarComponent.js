@@ -11,6 +11,9 @@ function Menubar(props) {
           id="showComplete"
           type="checkbox"
           checked={props.showCompleted}
+          onClick={() => {
+            props.toggleShowComplete(props.showCompleted)
+          }}
         />
         <label htmlFor="lengthValue"> | Total Items: </label>
         <input id="lengthValue" type="number" value={props.items.length} />

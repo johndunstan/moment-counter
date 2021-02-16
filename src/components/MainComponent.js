@@ -46,6 +46,26 @@ class Main extends Component {
         },
       ],
     }
+    this.addItem = this.addItem.bind(this)
+    this.completeItem = this.completeItem.bind(this)
+    this.removeItem = this.removeItem.bind(this)
+    this.toggleShowComplete = this.toggleShowComplete.bind(this)
+  }
+
+  addItem() {
+    console.log('Item added')
+  }
+
+  completeItem() {
+    console.log('Item completed')
+  }
+
+  removeItem() {
+    console.log('Item removed')
+  }
+
+  toggleShowComplete = (showCompleted) => {
+    this.setState({ showCompleted: !showCompleted })
   }
 
   // NOTE: When I start having multiple lists, I'll want to start using 'match' with React Router
@@ -62,6 +82,10 @@ class Main extends Component {
                 showCompleted={this.state.showCompleted}
                 name={this.state.listOfLists[0].name}
                 items={this.state.listOfLists[0].items}
+                addItem={this.addItem}
+                completeItem={this.completeItem}
+                removeItem={this.completeItem}
+                toggleShowComplete={this.toggleShowComplete}
               />
             </Route>
             <Route path="/stats">
