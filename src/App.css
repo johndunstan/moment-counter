@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+nav h1 {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding-bottom: 2.5rem;
 }
 
 nav {
@@ -15,10 +26,20 @@ nav li {
   background-color: #61dafb;
 }
 
-/* .active-nav-item:active {
-  background-color: hotpink;
-} */
-
 .active-nav-item {
   background-color: hotpink;
+}
+
+button {
+  padding: 0.25rem;
+  margin: 0.5rem;
+}
+
+.footer {
+  color: yellow;
+  background-color: skyblue;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
 }

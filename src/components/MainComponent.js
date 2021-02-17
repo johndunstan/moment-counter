@@ -12,15 +12,23 @@ class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showCompleted: true,
+      showCompleted: false,
       listOfLists: [
         {
           id: 1,
-          name: 'NuCamp Saturdays',
+          name: 'Items to Complete',
           items: [
             {
+              id: 0,
+              isComplete: false,
+              description: null,
+              date: null,
+              time: null,
+              duration: null,
+            },
+            {
               id: 1,
-              isComplete: true,
+              isComplete: false,
               description: null,
               date: null,
               time: null,
@@ -34,34 +42,49 @@ class Main extends Component {
               time: null,
               duration: null,
             },
-            {
-              id: 3,
-              isComplete: true,
-              description: null,
-              date: null,
-              time: null,
-              duration: null,
-            },
           ],
         },
       ],
     }
     this.addItem = this.addItem.bind(this)
+    this.changeTotal = this.changeTotal.bind(this)
     this.completeItem = this.completeItem.bind(this)
-    this.removeItem = this.removeItem.bind(this)
+    this.deleteItem = this.deleteItem.bind(this)
     this.toggleShowComplete = this.toggleShowComplete.bind(this)
   }
 
-  addItem() {
-    console.log('Item added')
+  addItem = () => {
+    const newItem = {
+      // id: Math.floor(Math.random() * 10000000 + 1),
+      id: this.state.listOfLists[0].items.length,
+      isComplete: false,
+      description: null,
+      date: null,
+      time: null,
+      duration: null,
+    }
+
+    this.state.listOfLists[0].items.push(newItem)
+    this.setState({ listOfLists: this.state.listOfLists })
   }
 
-  completeItem() {
-    console.log('Item completed')
+  changeTotal = (newTotal) => {
+    console.log(`Total Changed!`)
   }
 
-  removeItem() {
-    console.log('Item removed')
+  completeItem = (id) => {
+    this.setState(
+      this.state.listOfLists[0].items.map((item) => {
+        if (item.id === id) {
+          item.isComplete = !item.isComplete
+        }
+        return item
+      })
+    )
+  }
+
+  deleteItem = () => {
+    console.log('Item deleted')
   }
 
   toggleShowComplete = (showCompleted) => {
@@ -83,8 +106,9 @@ class Main extends Component {
                 name={this.state.listOfLists[0].name}
                 items={this.state.listOfLists[0].items}
                 addItem={this.addItem}
+                changeTotal={this.changeTotal}
                 completeItem={this.completeItem}
-                removeItem={this.completeItem}
+                deleteItem={this.deleteItem}
                 toggleShowComplete={this.toggleShowComplete}
               />
             </Route>

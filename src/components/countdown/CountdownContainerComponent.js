@@ -9,9 +9,12 @@ function CountdownContainer(props) {
         showCompleted={props.showCompleted}
         items={props.items}
         toggleShowComplete={props.toggleShowComplete}
+        addItem={props.addItem}
+        changeTotal={props.changeTotal}
       />
       <DisplayItems
         showCompleted={props.showCompleted}
+        completeItem={props.completeItem}
         name={props.name}
         items={props.items}
       />

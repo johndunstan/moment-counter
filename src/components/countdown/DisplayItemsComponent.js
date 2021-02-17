@@ -4,10 +4,26 @@ function DisplayItems(props) {
   function RenderItem(item) {
     if (!item.isComplete) {
       return (
-        <button key={item.id}>Function Item {item.id} | NOT Complete</button>
+        <button
+          key={item.id}
+          onClick={() => {
+            props.completeItem(item.id)
+          }}
+        >
+          NOT Complete
+        </button>
       )
     } else if (props.showCompleted && item.isComplete) {
-      return <button key={item.id}>Function Item {item.id} | Complete</button>
+      return (
+        <button
+          key={item.id}
+          onClick={() => {
+            props.completeItem(item.id)
+          }}
+        >
+          Complete
+        </button>
+      )
     }
   }
 
