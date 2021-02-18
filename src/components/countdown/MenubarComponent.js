@@ -1,42 +1,57 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-function Menubar(props) {
-  const completedItems = props.items.filter((item) => item.isComplete === true)
-  const handleClick = (event) => {
-    event.preventDefault()
-    props.addItem()
+class Menubar extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { value: this.props.items.length }
   }
 
-  const handleTotalChange = (event) => {
+  handleClick = (event) => {
     event.preventDefault()
-    props.changeTotal()
+    this.props.addItem()
   }
 
-  return (
-    <div>
-      <form>
-        <label htmlFor="showComplete">Show Completed: </label>
-        <input
-          id="showComplete"
-          type="checkbox"
-          checked={props.showCompleted}
-          onChange={() => {
-            props.toggleShowComplete(props.showCompleted)
-          }}
-        />
-        <label htmlFor="lengthValue"> | Total Items: </label>
-        <input
-          id="lengthValue"
-          type="number"
-          value={props.items.length}
-          onChange={handleTotalChange}
-        />
-        <span> | Complete Items: {completedItems.length}</span>
-        <span> ~ </span>
-        <button onClick={handleClick}>+1</button>
-      </form>
-    </div>
-  )
+  handleTotalChange = (event) => {
+    event.preventDefault()
+    this.setState({ value: event.target.value })
+  }
+
+  handleBlur = (event) => {
+    event.preventDefault()
+    this.props.changeTotal(this.state.value)
+  }
+
+  render() {
+    const completedItems = this.props.items.filter(
+      (item) => item.isComplete === true
+    )
+    return (
+      <div>
+        <form>
+          <label htmlFor="showComplete">Show Completed: </label>
+          <input
+            id="showComplete"
+            type="checkbox"
+            checked={this.props.showCompleted}
+            onChange={() => {
+              this.props.toggleShowComplete(this.props.showCompleted)
+            }}
+          />
+          <label htmlFor="lengthValue"> | Total Items: </label>
+          <input
+            id="lengthValue"
+            type="number"
+            value={this.state.value}
+            onChange={this.handleTotalChange}
+            onBlur={this.handleBlur}
+          />
+          <span> | Complete Items: {completedItems.length}</span>
+          <span> ~ </span>
+          <button onClick={this.handleClick}>+1</button>
+        </form>
+      </div>
+    )
+  }
 }
 
 export default Menubar

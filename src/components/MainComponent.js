@@ -15,61 +15,75 @@ class Main extends Component {
       showCompleted: false,
       listOfLists: [
         {
-          id: 1,
+          id: this.idGenerator(),
           name: 'Items to Complete',
           items: [
-            {
-              id: 0,
-              isComplete: false,
-              description: null,
-              date: null,
-              time: null,
-              duration: null,
-            },
-            {
-              id: 1,
-              isComplete: false,
-              description: null,
-              date: null,
-              time: null,
-              duration: null,
-            },
-            {
-              id: 2,
-              isComplete: false,
-              description: null,
-              date: null,
-              time: null,
-              duration: null,
-            },
+            this.createNewItem(),
+            this.createNewItem(),
+            this.createNewItem(),
+            this.createNewItem(),
+            this.createNewItem(),
           ],
         },
       ],
     }
-    this.addItem = this.addItem.bind(this)
-    this.changeTotal = this.changeTotal.bind(this)
-    this.completeItem = this.completeItem.bind(this)
-    this.deleteItem = this.deleteItem.bind(this)
-    this.toggleShowComplete = this.toggleShowComplete.bind(this)
   }
 
-  addItem = () => {
-    const newItem = {
-      // id: Math.floor(Math.random() * 10000000 + 1),
-      id: this.state.listOfLists[0].items.length,
+  idGenerator = () => {
+    //TODO: Investigate & implement better idGenerator function
+    return Math.floor(Math.random() * 1000000000000 + 1)
+  }
+
+  createNewItem = () => {
+    return {
+      id: this.idGenerator(),
       isComplete: false,
       description: null,
       date: null,
       time: null,
       duration: null,
     }
-
-    this.state.listOfLists[0].items.push(newItem)
-    this.setState({ listOfLists: this.state.listOfLists })
   }
 
+  addItem = () => {
+    const newListOfLists = { ...this.state.listOfLists }
+    const newItem = this.createNewItem()
+
+    newListOfLists[0].items.push(newItem)
+    this.setState({ listOfLists: newListOfLists })
+  }
+
+  // TODO: I'll want to do something like in my addItem function, but I'll
+  // want to find the number of items to add then create those items and add to a
+  // copy of state. Then set state to that copy.
+  // (Likely also create a newItemGenerator() function to handle creating new items.)
   changeTotal = (newTotal) => {
-    console.log(`Total Changed!`)
+    console.log(`Total Changed! ${newTotal}`)
+
+    const itemsToAdjust = newTotal - this.state.listOfLists[0].items.length
+    console.log(`Change items by ${itemsToAdjust} items! 🧮`)
+
+    const newListOfLists = { ...this.state.listOfLists }
+    let newItemsArry = []
+
+    // Use an if statement to look at itemsToAdjust...
+    if (itemsToAdjust > 0) {
+      for (let i = 0; i < itemsToAdjust; i++) {
+        newListOfLists[0].items.push(this.createNewItem())
+        // newItemsArry.push(this.createNewItem())
+      }
+      // newListOfLists[0].items = [...newListOfLists[0], ...newItemsArry]
+    } else {
+      for (let i = itemsToAdjust; i < 0; i++) {
+        newListOfLists[0].items.pop()
+      }
+    }
+
+    // if itemsToAdjust is postive, add that number of items
+    // if it's negative, remove that number of items
+    // it it's zero, do nothing
+
+    this.setState({ listOfLists: newListOfLists })
   }
 
   completeItem = (id) => {
