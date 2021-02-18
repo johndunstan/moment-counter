@@ -8,6 +8,7 @@ class Menubar extends Component {
 
   handleClick = (event) => {
     event.preventDefault()
+    this.setState({ value: Number(this.state.value) + 1 })
     this.props.addItem()
   }
 

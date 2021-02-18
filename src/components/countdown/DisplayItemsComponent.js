@@ -4,25 +4,25 @@ function DisplayItems(props) {
   function RenderItem(item) {
     if (!item.isComplete) {
       return (
-        <button
+        <div
           key={item.id}
           onClick={() => {
             props.completeItem(item.id)
           }}
-        >
-          NOT Complete
-        </button>
+          className="circle"
+        ></div>
       )
     } else if (props.showCompleted && item.isComplete) {
       return (
-        <button
+        <div
           key={item.id}
           onClick={() => {
             props.completeItem(item.id)
           }}
+          className="circle complete"
         >
-          Complete
-        </button>
+          <p>(complete)</p>
+        </div>
       )
     }
   }
@@ -30,7 +30,9 @@ function DisplayItems(props) {
   return (
     <>
       <h1>{props.name}</h1>
-      {props.items.map((item) => RenderItem(item))}
+      <div className="display-container">
+        {props.items.map((item) => RenderItem(item))}
+      </div>
     </>
   )
 }
