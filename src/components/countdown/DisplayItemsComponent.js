@@ -21,7 +21,10 @@ function DisplayItems(props) {
           }}
           className="circle complete"
         >
-          <p>(complete)</p>
+          <div>
+            <h1>🎊</h1>
+            <p>(complete)</p>
+          </div>
         </div>
       )
     }

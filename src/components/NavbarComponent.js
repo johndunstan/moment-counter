@@ -7,15 +7,25 @@ function Navbar() {
       <h1>Moment Counter</h1>
       <ul>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink className="nav-item" to="/">
+            Home
+          </NavLink>
         </li>
         <li>
-          <NavLink activeClassName="active-nav-item" to="/stats">
+          <NavLink
+            className="nav-item"
+            activeClassName="active-nav-item"
+            to="/stats"
+          >
             Stats
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName="active-nav-item" to="/about">
+          <NavLink
+            className="nav-item"
+            activeClassName="active-nav-item"
+            to="/about"
+          >
             About
           </NavLink>
         </li>
