@@ -56,7 +56,7 @@ nav li:nth-child(2) {
 
 @media (max-width: 768px) {
   nav ul {
-    display: none;
+    /* display: none; */
   }
 }
 /********** NAVBAR **********/
