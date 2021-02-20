@@ -30,6 +30,8 @@ I thought it would be fun to create a digital version of this idea...hence Momen
 
 Originally, I thought the idea was at least sort of unique. Then I realized it's essentially a todo app done in a different way. At first that disappointed me, but the more I thought about it, I decided it was actually a great learning project - it's familar enough (and similar enough to other things) that's it's within reach. Yet, it's also unique enough and scalable enough that it can remain challenging yet fun.
 
+The design and original intent can be found on Figma [here](https://www.figma.com/file/17vW94nlMz1CYZiXVScEhi/Moment-Counter-Wireframe?node-id=292669%3A448). The direction the sytle and colors have taken are a bit more brutalist than I expected, but I'm liking it for now. In the long term, I'd like to have different color themes and options of shapes. (I've played with balloons for my items, but I'm sticking with circles for now.)
+
 ### Challenges
 
 As I'm learning, time is my major challenge. Everything interests me! So I find myself using discipline to remain focused on the major tasks and not end up in an unproductive, though interesting, rabbit hole.
