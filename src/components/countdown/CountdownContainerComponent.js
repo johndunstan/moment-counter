@@ -8,14 +8,16 @@ function CountdownContainer(props) {
       <Menubar
         showCompleted={props.showCompleted}
         items={props.items}
+        name={props.name}
         toggleShowComplete={props.toggleShowComplete}
         addItem={props.addItem}
+        subtractItem={props.subtractItem}
         changeTotal={props.changeTotal}
+        resetState={props.resetState}
       />
       <DisplayItems
         showCompleted={props.showCompleted}
         completeItem={props.completeItem}
-        name={props.name}
         items={props.items}
       />
     </div>

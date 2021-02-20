@@ -6,10 +6,23 @@ class Menubar extends Component {
     this.state = { value: this.props.items.length }
   }
 
-  handleClick = (event) => {
+  handleClickPlusOne = (event) => {
     event.preventDefault()
     this.setState({ value: Number(this.state.value) + 1 })
     this.props.addItem()
+  }
+
+  handleClickMinusOne = (event) => {
+    event.preventDefault()
+    this.setState({ value: Number(this.state.value) - 1 })
+    this.props.subtractItem()
+  }
+
+  handleClickReset = (event) => {
+    event.preventDefault()
+    // TODO: Figure out a better way to reset value
+    this.setState({ value: 5 })
+    this.props.resetState()
   }
 
   handleTotalChange = (event) => {
@@ -26,31 +39,43 @@ class Menubar extends Component {
     const completedItems = this.props.items.filter(
       (item) => item.isComplete === true
     )
+
     return (
-      <div>
-        <form>
-          <label htmlFor="showComplete">Show Completed: </label>
-          <input
-            id="showComplete"
-            type="checkbox"
-            checked={this.props.showCompleted}
-            onChange={() => {
-              this.props.toggleShowComplete(this.props.showCompleted)
-            }}
-          />
-          <label htmlFor="lengthValue"> | Total Items: </label>
-          <input
-            id="lengthValue"
-            type="number"
-            value={this.state.value}
-            onChange={this.handleTotalChange}
-            onBlur={this.handleBlur}
-          />
-          <span> | Complete Items: {completedItems.length}</span>
-          <span> ~ </span>
-          <button onClick={this.handleClick}>+1</button>
-        </form>
-      </div>
+      <form>
+        <div className="menu-bar">
+          <div>
+            <input
+              id="showComplete"
+              className="form-field"
+              type="checkbox"
+              checked={this.props.showCompleted}
+              onChange={() => {
+                this.props.toggleShowComplete(this.props.showCompleted)
+              }}
+            />
+            <label htmlFor="showComplete"> Show Completed</label>
+          </div>
+          <h1>{this.props.name}</h1>
+          <div className="form-right">
+            <label htmlFor="lengthValue">Total Items: </label>
+            <input
+              id="lengthValue"
+              className="form-field"
+              type="number"
+              value={this.state.value}
+              onChange={this.handleTotalChange}
+              onBlur={this.handleBlur}
+            />
+            <div>
+              Complete Items:{' '}
+              <span className="complete-total">{completedItems.length}</span>
+            </div>
+            <button onClick={this.handleClickMinusOne}>-1</button>
+            <button onClick={this.handleClickPlusOne}>+1</button>
+            <button onClick={this.handleClickReset}>♼</button>
+          </div>
+        </div>
+      </form>
     )
   }
 }

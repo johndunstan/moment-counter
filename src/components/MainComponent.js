@@ -53,35 +53,26 @@ class Main extends Component {
     this.setState({ listOfLists: newListOfLists })
   }
 
-  // TODO: I'll want to do something like in my addItem function, but I'll
-  // want to find the number of items to add then create those items and add to a
-  // copy of state. Then set state to that copy.
-  // (Likely also create a newItemGenerator() function to handle creating new items.)
-  changeTotal = (newTotal) => {
-    console.log(`Total Changed! ${newTotal}`)
-
-    const itemsToAdjust = newTotal - this.state.listOfLists[0].items.length
-    console.log(`Change items by ${itemsToAdjust} items! 🧮`)
-
+  subtractItem = () => {
     const newListOfLists = { ...this.state.listOfLists }
-    let newItemsArry = []
+    newListOfLists[0].items.pop()
 
-    // Use an if statement to look at itemsToAdjust...
+    this.setState({ listOfLists: newListOfLists })
+  }
+
+  changeTotal = (newTotal) => {
+    const itemsToAdjust = newTotal - this.state.listOfLists[0].items.length
+    const newListOfLists = { ...this.state.listOfLists }
+
     if (itemsToAdjust > 0) {
       for (let i = 0; i < itemsToAdjust; i++) {
         newListOfLists[0].items.push(this.createNewItem())
-        // newItemsArry.push(this.createNewItem())
       }
-      // newListOfLists[0].items = [...newListOfLists[0], ...newItemsArry]
     } else {
       for (let i = itemsToAdjust; i < 0; i++) {
         newListOfLists[0].items.pop()
       }
     }
-
-    // if itemsToAdjust is postive, add that number of items
-    // if it's negative, remove that number of items
-    // it it's zero, do nothing
 
     this.setState({ listOfLists: newListOfLists })
   }
@@ -97,8 +88,27 @@ class Main extends Component {
     )
   }
 
-  deleteItem = () => {
-    console.log('Item deleted')
+  resetState = () => {
+    console.log('State reset!')
+
+    const initialState = {
+      showCompleted: false,
+      listOfLists: [
+        {
+          id: this.idGenerator(),
+          name: 'Items to Complete',
+          items: [
+            this.createNewItem(),
+            this.createNewItem(),
+            this.createNewItem(),
+            this.createNewItem(),
+            this.createNewItem(),
+          ],
+        },
+      ],
+    }
+
+    this.setState(initialState)
   }
 
   toggleShowComplete = (showCompleted) => {
@@ -106,7 +116,6 @@ class Main extends Component {
   }
 
   // NOTE: When I start having multiple lists, I'll want to start using 'match' with React Router
-  // TODO: Set up a basic 404-page to route to
 
   render() {
     return (
@@ -120,14 +129,16 @@ class Main extends Component {
                 name={this.state.listOfLists[0].name}
                 items={this.state.listOfLists[0].items}
                 addItem={this.addItem}
+                subtractItem={this.subtractItem}
                 changeTotal={this.changeTotal}
                 completeItem={this.completeItem}
                 deleteItem={this.deleteItem}
+                resetState={this.resetState}
                 toggleShowComplete={this.toggleShowComplete}
               />
             </Route>
             <Route path="/stats">
-              <Stats />
+              <Stats items={this.state.listOfLists[0].items} />
             </Route>
             <Route path="/about">
               <About />

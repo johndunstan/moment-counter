@@ -3,7 +3,13 @@ import React from 'react'
 function Footer() {
   return (
     <div className="footer">
-      <p>Project by John Dunstan for Nucamp</p>
+      <p>
+        Project by{' '}
+        <a href="https://github.com/johndunstan" target="_blank">
+          John Dunstan
+        </a>{' '}
+        for Nucamp
+      </p>
     </div>
   )
 }

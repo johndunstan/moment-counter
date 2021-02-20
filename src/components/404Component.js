@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 function PageNotFound() {
   return (
     <>
-      <h2>Page not found 🤦🏼‍♂️</h2>
-      <p>
+      <h1>Page not found 🤦🏼‍♂️</h1>
+      <h2>
         <Link to="/">Return home</Link>
-      </p>
+      </h2>
     </>
   )
 }

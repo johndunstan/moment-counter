@@ -32,7 +32,6 @@ function DisplayItems(props) {
 
   return (
     <>
-      <h1>{props.name}</h1>
       <div className="display-container">
         {props.items.map((item) => RenderItem(item))}
       </div>
