@@ -45,6 +45,7 @@ I intend to continue enhancing this app and use it as a playground for future le
 - Add in Font Awesome (or some other icon library) to use on the buttons
 - Add animation to items when the disappear and reappear (this is especially jarring when going from viewing complete/incomplete items)
 - Host a working version of the site (likely on Netlify)
+  - Ideally I'd like to set this up via continuous integration with some sort sort of build branch on GitHub
 
 #### Medium Term Next Steps
 
@@ -52,6 +53,7 @@ I intend to continue enhancing this app and use it as a playground for future le
 - Work on mobile responsivity (which is non-existent at this point) - this is especially needed for my menu
 - Add additional features like adding/editing content on each item (like description, date to complete, etc)
 - Add more display options for items (like item-number, etc.)
+- Create/add a logo
 
 ### Long Term Next Steps
 
