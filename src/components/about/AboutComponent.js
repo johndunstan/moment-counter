@@ -11,11 +11,18 @@ function About() {
             <a
               href="https://www.linkedin.com/in/john-dunstan-235268185/"
               target="_blank"
+              rel="noreferrer"
             >
               John Dunstan
             </a>
           </span>{' '}
-          for <span className="total-span">Nucamp</span>.
+          for{' '}
+          <span className="total-span">
+            <a href="https://www.nucamp.co/" target="_blank" rel="noreferrer">
+              Nucamp
+            </a>
+          </span>
+          .
         </h2>
         <p>
           John likes to spend time with his family, ride mountain bikes, and

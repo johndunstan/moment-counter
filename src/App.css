@@ -46,7 +46,7 @@ h1 {
 
 .content-body a:hover,
 .footer a:hover {
-  transform: scale(1.1);
+  font-size: larger;
 }
 
 /********** NAVBAR ***********/

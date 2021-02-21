@@ -5,7 +5,11 @@ function Footer() {
     <div className="footer">
       <p>
         Project by{' '}
-        <a href="https://github.com/johndunstan" target="_blank">
+        <a
+          href="https://github.com/johndunstan"
+          target="_blank"
+          rel="noreferrer"
+        >
           John Dunstan
         </a>{' '}
         for Nucamp

@@ -11,8 +11,9 @@ import PageNotFound from './404Component'
 class Main extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
-      showCompleted: false,
+      showCompleted: true,
       listOfLists: [
         {
           id: this.idGenerator(),
@@ -27,6 +28,29 @@ class Main extends Component {
         },
       ],
     }
+  }
+
+  resetState = () => {
+    console.log('State reset!')
+
+    const initialState = {
+      showCompleted: true,
+      listOfLists: [
+        {
+          id: this.idGenerator(),
+          name: 'Items to Complete',
+          items: [
+            this.createNewItem(),
+            this.createNewItem(),
+            this.createNewItem(),
+            this.createNewItem(),
+            this.createNewItem(),
+          ],
+        },
+      ],
+    }
+
+    this.setState(initialState)
   }
 
   idGenerator = () => {
@@ -86,29 +110,6 @@ class Main extends Component {
         return item
       })
     )
-  }
-
-  resetState = () => {
-    console.log('State reset!')
-
-    const initialState = {
-      showCompleted: false,
-      listOfLists: [
-        {
-          id: this.idGenerator(),
-          name: 'Items to Complete',
-          items: [
-            this.createNewItem(),
-            this.createNewItem(),
-            this.createNewItem(),
-            this.createNewItem(),
-            this.createNewItem(),
-          ],
-        },
-      ],
-    }
-
-    this.setState(initialState)
   }
 
   toggleShowComplete = (showCompleted) => {
