@@ -20,6 +20,9 @@ Original wireframes and design intent can be [found here](https://www.figma.com/
 
 ```
 yarn add react-router
+yarn add @fortawesome/fontawesome-svg-core
+yarn add @fortawesome/free-solid-svg-icons
+yarn add @fortawesome/react-fontawesome
 ```
 
 ## More About the Project
