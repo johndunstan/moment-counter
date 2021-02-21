@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus, faMinus, faRedo } from '@fortawesome/free-solid-svg-icons'
 
 class Menubar extends Component {
   constructor(props) {
@@ -70,9 +72,15 @@ class Menubar extends Component {
               Complete Items:{' '}
               <span className="complete-total">{completedItems.length}</span>
             </div>
-            <button onClick={this.handleClickMinusOne}>-1</button>
-            <button onClick={this.handleClickPlusOne}>+1</button>
-            <button onClick={this.handleClickReset}>♼</button>
+            <button onClick={this.handleClickMinusOne}>
+              <FontAwesomeIcon icon={faMinus} />
+            </button>
+            <button onClick={this.handleClickPlusOne}>
+              <FontAwesomeIcon icon={faPlus} />
+            </button>
+            <button onClick={this.handleClickReset}>
+              <FontAwesomeIcon icon={faRedo} />
+            </button>
           </div>
         </div>
       </form>
