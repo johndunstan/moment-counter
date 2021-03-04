@@ -47,9 +47,11 @@ h1 {
   transition: all 0.2s ease-in-out;
 }
 
-.content-body a:hover,
+.content-body a:hover {
+  text-decoration: underline;
+}
 .footer a:hover {
-  font-size: larger;
+  font-weight: bold;
 }
 
 /********** NAVBAR ***********/
