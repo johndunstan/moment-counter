@@ -13,7 +13,7 @@ class Main extends Component {
     super(props)
 
     this.state = {
-      showCompleted: true,
+      showCompleted: false,
       listOfLists: [
         {
           id: this.idGenerator(),
@@ -23,10 +23,10 @@ class Main extends Component {
             this.createNewItem(),
             this.createNewItem(),
             this.createNewItem(),
-            this.createNewItem(),
-          ],
-        },
-      ],
+            this.createNewItem()
+          ]
+        }
+      ]
     }
   }
 
@@ -44,10 +44,10 @@ class Main extends Component {
             this.createNewItem(),
             this.createNewItem(),
             this.createNewItem(),
-            this.createNewItem(),
-          ],
-        },
-      ],
+            this.createNewItem()
+          ]
+        }
+      ]
     }
 
     this.setState(initialState)
@@ -65,7 +65,7 @@ class Main extends Component {
       description: null,
       date: null,
       time: null,
-      duration: null,
+      duration: null
     }
   }
 

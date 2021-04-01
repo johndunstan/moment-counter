@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus, faRedo } from '@fortawesome/free-solid-svg-icons'
 
+const minValue = 1
+const maxValue = 1000
+
 class Menubar extends Component {
   constructor(props) {
     super(props)
@@ -16,8 +19,10 @@ class Menubar extends Component {
 
   handleClickMinusOne = (event) => {
     event.preventDefault()
-    this.setState({ value: Number(this.state.value) - 1 })
-    this.props.subtractItem()
+    if (this.state.value > minValue) {
+      this.setState({ value: Number(this.state.value) - 1 })
+      this.props.subtractItem()
+    }
   }
 
   handleClickReset = (event) => {
@@ -32,9 +37,24 @@ class Menubar extends Component {
     this.setState({ value: event.target.value })
   }
 
-  handleBlur = (event) => {
+  handleSubmit = (event) => {
     event.preventDefault()
     this.props.changeTotal(this.state.value)
+  }
+
+  handleBlur = (event) => {
+    event.preventDefault()
+    if (event.target.value < minValue) {
+      this.setState({ value: minValue })
+      this.props.changeTotal(minValue)
+    } else if (event.target.value > maxValue) {
+      console.log('Too big')
+      this.setState({ value: maxValue })
+      this.props.changeTotal(maxValue)
+    } else {
+      this.setState({ value: event.target.value })
+      this.props.changeTotal(this.state.value)
+    }
   }
 
   render() {
@@ -43,7 +63,7 @@ class Menubar extends Component {
     )
 
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div className="menu-bar">
           <div>
             <input
@@ -58,12 +78,15 @@ class Menubar extends Component {
             <label htmlFor="showComplete"> Show Completed</label>
           </div>
           <h1>{this.props.name}</h1>
+
           <div className="form-right">
             <label htmlFor="lengthValue">Total Items: </label>
             <input
               id="lengthValue"
               className="form-field"
               type="number"
+              min={minValue}
+              max={maxValue}
               value={this.state.value}
               onChange={this.handleTotalChange}
               onBlur={this.handleBlur}
@@ -72,13 +95,13 @@ class Menubar extends Component {
               Complete Items:{' '}
               <span className="complete-total">{completedItems.length}</span>
             </div>
-            <button onClick={this.handleClickMinusOne}>
+            <button type="button" onClick={this.handleClickMinusOne}>
               <FontAwesomeIcon icon={faMinus} />
             </button>
-            <button onClick={this.handleClickPlusOne}>
+            <button type="button" onClick={this.handleClickPlusOne}>
               <FontAwesomeIcon icon={faPlus} />
             </button>
-            <button onClick={this.handleClickReset}>
+            <button type="button" onClick={this.handleClickReset}>
               <FontAwesomeIcon icon={faRedo} />
             </button>
           </div>
