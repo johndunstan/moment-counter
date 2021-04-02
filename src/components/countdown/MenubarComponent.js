@@ -48,7 +48,6 @@ class Menubar extends Component {
       this.setState({ value: minValue })
       this.props.changeTotal(minValue)
     } else if (event.target.value > maxValue) {
-      console.log('Too big')
       this.setState({ value: maxValue })
       this.props.changeTotal(maxValue)
     } else {
@@ -90,6 +89,7 @@ class Menubar extends Component {
               value={this.state.value}
               onChange={this.handleTotalChange}
               onBlur={this.handleBlur}
+              autoFocus
             />
             <div>
               Complete Items:{' '}
