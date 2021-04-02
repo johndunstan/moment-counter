@@ -13,7 +13,7 @@ class Main extends Component {
     super(props)
 
     this.state = {
-      showCompleted: false,
+      showCompleted: true,
       listOfLists: [
         {
           id: this.idGenerator(),

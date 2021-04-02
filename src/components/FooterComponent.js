@@ -12,7 +12,10 @@ function Footer() {
         >
           John Dunstan
         </a>{' '}
-        for Nucamp
+        for{' '}
+        <a href="https://www.nucamp.co/" target="_blank" rel="noreferrer">
+          Nucamp
+        </a>
       </p>
     </div>
   )
