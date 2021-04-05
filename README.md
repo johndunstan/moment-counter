@@ -2,6 +2,8 @@
 
 App found at: https://momentcounter.netlify.app/
 
+A five minute video introducing this project can be [found here](https://www.loom.com/share/69339b49963b43aea9e19243635b6d70).
+
 ## General Info
 
 A React portfolio project for Nucamp.
